@@ -47,7 +47,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
          imageView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-         self.selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        self.selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
          self.uploadImage(Image: selectedImage!)
                
         picker.dismiss(animated: true, completion: nil)
