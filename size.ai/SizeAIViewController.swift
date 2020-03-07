@@ -24,15 +24,15 @@ class SizeAIViewController: UIViewController, UIImagePickerControllerDelegate, U
         estimateLabel.isHidden = true
         let img = UIImage(named: "crowdTest.jpeg")
         print("Calling function")
-       // myImageUploadRequest(image: img!)
-        // Do any additional setup after lo
-        //      ading the view.
-        imageView.dropShadow()
+        myImageUploadRequest(image: img!)
+       // imageView.dropShadow()
+        
+        //displayPrediction(data: "124")
     }
     
     func displayPrediction(data: String){
            estimateLabel.isHidden = false
-           dataLabel.text = data
+            dataLabel.text = data
        }
 
     @IBAction func buttonHit(_ sender: UIButton) {
@@ -113,15 +113,14 @@ class SizeAIViewController: UIViewController, UIImagePickerControllerDelegate, U
             
             // You can print out response object
             print("******* response = \(response)")
-            
-            
-            
+        
             
             // Print out reponse body
             let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
             print("****** response data = \(responseString!)")
             
             self.displayPrediction(data: responseString! as String)
+            self.dataLabel.text = responseString as String?
             
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
